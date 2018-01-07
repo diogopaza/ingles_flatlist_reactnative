@@ -15,14 +15,24 @@ class FlatListItem extends Component{
         return(
             <View style={{flex:1,
                         backgroundColor: this.props.index % 2 == 0 ? 'mediumseagreen' : 'tomato' }}>
-                <Text>this.props.item.name</Text>
-                <Text>this.props.item.FoodDescription</Text>
+                <Text style={styles.FlatListItem}>{this.props.item.name}</Text>
+                <Text style={styles.FlatListItem}>{this.props.item.FoodDescription}</Text>
             </View>
         ) 
 
     }
 
 }
+
+const styles = StyleSheet.create({
+
+    FlatListItem:{
+        color: 'white',
+        padding: 10,
+        fontSize:16,
+    }
+
+})
 
 export default class BasicFlatList extends Component{
 
@@ -34,7 +44,7 @@ export default class BasicFlatList extends Component{
                     data={flatListData}
                   
                     renderItem = {({item, index}) => {
-                        //console.log('Item' + JSON.stringify( item ) + 'Index ' + index)
+                        console.log('Item' + JSON.stringify( item ) + 'Index ' + index)
                         return (
                             <FlatListItem item={item} index={index}>
                             </FlatListItem>)
